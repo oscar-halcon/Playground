@@ -1,0 +1,20 @@
+const offer = {
+    Annual_salary: 75000 ,
+    Bonus: 0 ,
+    Total_annual: 0 ,
+    Strike_price: 0.2 ,
+    Number_options: 50000 ,
+    Current_FMV_company: 5 ,
+    CostOfExercise_StrikeXOptions: 10000 ,
+    Value_equity_OptionsxFMV: 0 ,
+    matching_401k: false ,
+    Office_food: false ,
+    Cover_Transport_costs: false ,
+    Health_insurance: false ,
+    Vacation_days: 0 ,
+    Parental_leave: 0 ,
+    Training_budget: 0 ,
+    Home_office_budget: 0 ,
+    Remote_working: false ,
+    Growth_plan: true
+}
