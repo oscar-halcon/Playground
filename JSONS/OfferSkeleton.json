@@ -1,5 +1,5 @@
-{
-    "id": 0 ,
+[{
+    "id": 1 ,
     "Annual_salary": 75000 ,
     "Bonus": 0 ,
     "Total_annual": 0 ,
@@ -18,4 +18,25 @@
     "Home_office_budget": 0 ,
     "Remote_working": false ,
     "Growth_plan": true
-}
+},
+{
+    "id": 2 ,
+    "Annual_salary": 60000 ,
+    "Bonus": 0 ,
+    "Total_annual": 0 ,
+    "Strike_price": 0.1 ,
+    "Number_options": 8000 ,
+    "Current_FMV_company": 3 ,
+    "CostOfExercise_StrikeXOptions": 800 ,
+    "Value_equity_Options/FMV": 0 ,
+    "401k_matching": false ,
+    "Office_food": false ,
+    "Cover_Transport_costs": false ,
+    "Health_insurance": false ,
+    "Vacation_days": 24 ,
+    "Parental_leave": 120 ,
+    "Training_budget": 0 ,
+    "Home_office_budget": 0 ,
+    "Remote_working": false ,
+    "Growth_plan": true
+}]
