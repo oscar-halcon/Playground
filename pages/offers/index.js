@@ -18,7 +18,9 @@ const Offers = ({offer}) => {
          <a>Offer {a.id}</a>
        </Link> 
         ))}
-        
+        <Link href={'/offers/comparison'}>
+        <a>Compare</a>
+        </Link>
       </div>
     );
   }
