@@ -41,21 +41,26 @@ const comparison = ({offer1, offer2}) => {
                 </tr>
                 <tr>
                     <th>Increment of company X3</th>
-                    <th>{(offer1.Number_options * offer1.Current_FMV_company)*3}</th>
-                    <th>{(offer2.Number_options*offer2.Current_FMV_company)*3}</th>
+                    <th>{Math.round((offer1.Number_options * offer1.Current_FMV_company)*3)}</th>
+                    <th>{Math.round((offer2.Number_options*offer2.Current_FMV_company)*3)}</th>
                 </tr>
                 <tr>
                     <th>Increment of company X5</th>
-                    <th>{(offer1.Number_options * offer1.Current_FMV_company)*5}</th>
-                    <th>{(offer2.Number_options*offer2.Current_FMV_company)*5}</th>
+                    <th>{Math.round((offer1.Number_options * offer1.Current_FMV_company)*5)}</th>
+                    <th>{Math.round((offer2.Number_options*offer2.Current_FMV_company)*5)}</th>
                 </tr>
                 <tr>
                     <th>Increment of company X7</th>
-                    <th>{(offer1.Number_options * offer1.Current_FMV_company)*7}</th>
-                    <th>{(offer2.Number_options*offer2.Current_FMV_company)*7}</th>
+                    <th>{Math.round((offer1.Number_options * offer1.Current_FMV_company)*7)}</th>
+                    <th>{Math.round((offer2.Number_options*offer2.Current_FMV_company)*7)}</th>
                 </tr>
                 <tr>
                     <th>Fall of the company</th>
+                </tr>
+                <tr>
+                    <th>Decrement of company X5</th>
+                    <th>{Math.round((offer1.Number_options * offer1.Current_FMV_company)/5)}</th>
+                    <th>{Math.round((offer2.Number_options*offer2.Current_FMV_company)/5)}</th>
                 </tr>
                 <tr>
                     <th>Decrement of company X7</th>
@@ -63,14 +68,9 @@ const comparison = ({offer1, offer2}) => {
                     <th>{Math.round((offer2.Number_options*offer2.Current_FMV_company)/7)}</th>
                 </tr>
                 <tr>
-                    <th>Decrement of company X5</th>
-                    <th>{(offer1.Number_options * offer1.Current_FMV_company)/5}</th>
-                    <th>{(offer2.Number_options*offer2.Current_FMV_company)/5}</th>
-                </tr>
-                <tr>
                     <th>Decrement of company X10</th>
-                    <th>{(offer1.Number_options * offer1.Current_FMV_company)/10}</th>
-                    <th>{(offer2.Number_options*offer2.Current_FMV_company)/10}</th>
+                    <th>{Math.round((offer1.Number_options * offer1.Current_FMV_company)/10)}</th>
+                    <th>{Math.round((offer2.Number_options*offer2.Current_FMV_company)/10)}</th>
                 </tr>
                 <tr>
                     <th>Extra Benefits</th>
