@@ -39,4 +39,25 @@
     "Home_office_budget": 0 ,
     "Remote_working": false ,
     "Growth_plan": true
+},
+{
+    "id": 3 ,
+    "Annual_salary": 40000 ,
+    "Bonus": 0 ,
+    "Total_annual": 0 ,
+    "Strike_price": 0.1 ,
+    "Number_options": 25000 ,
+    "Current_FMV_company": 4 ,
+    "CostOfExercise_StrikeXOptions": 2500 ,
+    "Value_equity_Options/FMV": 0 ,
+    "401k_matching": false ,
+    "Office_food": false ,
+    "Cover_Transport_costs": false ,
+    "Health_insurance": false ,
+    "Vacation_days": 14 ,
+    "Parental_leave": 90 ,
+    "Training_budget": 0 ,
+    "Home_office_budget": 0 ,
+    "Remote_working": false ,
+    "Growth_plan": true
 }]
