@@ -1,4 +1,11 @@
 import Offer from "../../JSONS/OfferSkeleton.json";
+import { Line } from "react-chartjs-2";
+import {CategoryScale} from 'chart.js'; 
+import Chart from 'chart.js/auto';
+
+var operation1 = 0;
+var operation2 = 2;
+var operation3 = 0;
 
 export const getStaticProps = async () => {
   const data = Offer;
@@ -10,9 +17,76 @@ export const getStaticProps = async () => {
   };
 };
 
+Chart.register(CategoryScale);
+
+const labels = ["2022", "2024", "2026", "2028", "2030"];
+
 const comparison = ({ offer1, offer2 }) => {
+  operation1 = offer1.Number_options * offer1.Current_FMV_company
+  operation2 = offer2.Number_options * offer2.Current_FMV_company;
+
+  const dataInc = {
+    labels,
+    datasets: [
+      {
+        label: "Offer 1",
+        data: [
+          operation1,
+          operation1 * 2,
+          operation1 * 4,
+          operation1 * 6,
+          operation1 * 7,
+        ],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "Offer 2",
+        data: [
+          operation2,
+          operation2 * 3,
+          operation2 * 5,
+          operation2 * 7,
+          operation2 * 10,
+        ],
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
+  const dataDecr = {
+    labels,
+    datasets: [
+      {
+        label: "Offer 1",
+        data: [
+          operation1,
+          operation1 / 3,
+          operation1 / 5,
+          operation1 / 7,
+          operation1 / 10,
+        ],
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+      {
+        label: "Offer 2",
+        data: [
+          operation2,
+          operation2 / 2,
+          operation2 / 4,
+          operation2 / 5,
+          operation2 / 6,
+        ],
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
   return (
     <div>
+      <Line title="Company-Increase" data={dataInc} width='750'/>
+      <Line label='Decrease' data={dataDecr} width='750'/>
       <table className="comparetab">
         {
           //offer.map(a=>(<tr> <th>a.id</th></tr> <tr> <th>a.id</th></tr>))
@@ -39,80 +113,44 @@ const comparison = ({ offer1, offer2 }) => {
         </tr>
         <tr>
           <th>Value of equity</th>
-          <th>{offer1.Number_options * offer1.Current_FMV_company}</th>
-          <th>{offer2.Number_options * offer2.Current_FMV_company}</th>
+          <th>{operation1}</th>
+          <th>{operation2}</th>
         </tr>
         <tr>
           <th>Increase value of the company</th>
         </tr>
         <tr>
           <th>Increment of company X3</th>
-          <th>
-            {Math.round(offer1.Number_options * offer1.Current_FMV_company * 3)}
-          </th>
-          <th>
-            {Math.round(offer2.Number_options * offer2.Current_FMV_company * 3)}
-          </th>
+          <th>{Math.round(operation1 * 3)}</th>
+          <th>{Math.round(operation2 * 3)}</th>
         </tr>
         <tr>
           <th>Increment of company X5</th>
-          <th>
-            {Math.round(offer1.Number_options * offer1.Current_FMV_company * 5)}
-          </th>
-          <th>
-            {Math.round(offer2.Number_options * offer2.Current_FMV_company * 5)}
-          </th>
+          <th>{Math.round(operation1 * 5)}</th>
+          <th>{Math.round(operation2 * 5)}</th>
         </tr>
         <tr>
           <th>Increment of company X7</th>
-          <th>
-            {Math.round(offer1.Number_options * offer1.Current_FMV_company * 7)}
-          </th>
-          <th>
-            {Math.round(offer2.Number_options * offer2.Current_FMV_company * 7)}
-          </th>
+          <th>{Math.round(operation1 * 7)}</th>
+          <th>{Math.round(operation2 * 7)}</th>
         </tr>
         <tr>
           <th>Fall of the company</th>
         </tr>
         <tr>
           <th>Decrement of company X5</th>
-          <th>
-            {Math.round(
-              (offer1.Number_options * offer1.Current_FMV_company) / 5
-            )}
-          </th>
-          <th>
-            {Math.round(
-              (offer2.Number_options * offer2.Current_FMV_company) / 5
-            )}
-          </th>
+          <th>{Math.round(operation1 / 5)}</th>
+          <th>{Math.round(operation2 / 5)}</th>
         </tr>
         <tr>
           <th>Decrement of company X7</th>
-          <th>
-            {Math.round(
-              (offer1.Number_options * offer1.Current_FMV_company) / 7
-            )}
-          </th>
-          <th>
-            {Math.round(
-              (offer2.Number_options * offer2.Current_FMV_company) / 7
-            )}
-          </th>
+          <th>{Math.round(operation1 / 7)}</th>
+          <th>{Math.round(operation2 / 7)}</th>
         </tr>
         <tr>
           <th>Decrement of company X10</th>
-          <th>
-            {Math.round(
-              (offer1.Number_options * offer1.Current_FMV_company) / 10
-            )}
-          </th>
-          <th>
-            {Math.round(
-              (offer2.Number_options * offer2.Current_FMV_company) / 10
-            )}
-          </th>
+          <th>{Math.round(operation1 / 10)}</th>
+          <th>{Math.round(operation2 / 10)}</th>
         </tr>
         <tr>
           <th>Extra Benefits</th>
