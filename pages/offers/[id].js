@@ -23,16 +23,6 @@ export const getStaticProps = async (context) => {
 const Details = ({ offer }) => {
   return (
     <div>
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>{offer.id}</th>
-        </tr>
-        <tr>
-          <th>Annual Salary</th>
-          <th>{offer.Annual_salary}</th>
-        </tr>
-      </table>
       <h4>ID: {offer.id}</h4>
       <h4>Annual Salary: {offer.Annual_salary}</h4>
       <h4>Bonus: {offer.Bonus}</h4>
