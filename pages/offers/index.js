@@ -15,7 +15,7 @@ const Offers = ({ offer }) => {
       <h1>All Offers</h1>
       {offer.map((a) => (
         <Link href={"/offers/" + a.id} key={a.id}>
-          <a>Offer {a.id}</a>
+          <a><h3>Offer {a.id}</h3></a>
         </Link>
       ))}
       <Link href={"/offers/comparison"}>
