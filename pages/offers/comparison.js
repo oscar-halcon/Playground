@@ -51,6 +51,12 @@ const comparison = ({ offer1, offer2, offer3 }) => {
   operation2 = offer2.Number_options * offer2.Current_FMV_company;
   operation3 = offer3.Number_options * offer3.Current_FMV_company;
 
+  var betterPaid = "";
+  var betterExtras = "";
+  var betterPosiProspec = "";
+  var betterOverallOffer = "";
+  var leastLosesIncur = "";
+
   const dataInc = {
     labels,
     datasets: [
@@ -85,7 +91,7 @@ const comparison = ({ offer1, offer2, offer3 }) => {
           operation3 * 3,
           operation3 * 5,
           operation3 * 7,
-          operation3 * 8,
+          operation3 * 10,
         ],
         borderColor: "green",
         backgroundColor: "green",
@@ -231,6 +237,7 @@ const comparison = ({ offer1, offer2, offer3 }) => {
           </tr>
         </tbody>
       </table>
+      <div></div>
     </div>
   );
 };
