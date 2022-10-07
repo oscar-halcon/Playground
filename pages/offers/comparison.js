@@ -1,4 +1,4 @@
-import Offer from "../../JSONS/OfferSkeleton.json";
+import Offer from "../api/JSONS/OfferSkeleton.json";
 import { Line } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";

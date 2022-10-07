@@ -1,7 +1,8 @@
-import Offers from "../../JSONS/OfferSkeleton.json";
+import offers from "../api/Objects/Offer";
+//Have to read object from the backend(api folder)
 
 export const getStaticPaths = async () => {
-  const data = Offers;
+  const data = offers;
   const paths = data.map((offer) => {
     return {
       params: { id: offer.id.toString() },
@@ -14,7 +15,7 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const data = Offers.at(id - 1);
+  const data = offers.at(id - 1);
   return {
     props: { offer: data },
   };
