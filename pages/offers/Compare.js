@@ -77,10 +77,10 @@ const Compare = () => {
         label: "Offer 1",
         data: [
           operation1,
-          operation1 * 2,
-          operation1 * 4,
-          operation1 * 6,
-          operation1 * 7,
+          Math.round(operation1 * 2),
+            Math.round(operation1 * 4),
+            Math.round(operation1 * 6),
+          Math.round(operation1 * 7),
         ],
         borderColor: "orange",
         backgroundColor: "orange",
@@ -89,10 +89,10 @@ const Compare = () => {
         label: "Offer 2",
         data: [
           operation2,
-          operation2 * 3,
-          operation2 * 5,
-          operation2 * 7,
-          operation2 * 10,
+          Math.round(operation2 * 3),
+          Math.round(operation2 * 5),
+          Math.round(operation2 * 7),
+          Math.round(operation2 * 10),
         ],
         borderColor: "blue",
         backgroundColor: "blue",
@@ -101,10 +101,10 @@ const Compare = () => {
         label: "Offer 3",
         data: [
           operation3,
-          operation3 * 3,
-          operation3 * 5,
-          operation3 * 7,
-          operation3 * 10,
+          Math.round(operation3 * 3),
+          Math.round(operation3 * 5),
+          Math.round(operation3 * 7),
+          Math.round(operation3 * 10),
         ],
         borderColor: "green",
         backgroundColor: "green",
@@ -118,10 +118,10 @@ const Compare = () => {
         label: "Offer 1",
         data: [
           operation1,
-          operation1 / 3,
-          operation1 / 5,
-          operation1 / 7,
-          operation1 / 10,
+          Math.round(operation1 / 3),
+          Math.round(operation1 / 5),
+          Math.round(operation1 / 7),
+          Math.round(operation1 / 10),
         ],
         borderColor: "orange",
         backgroundColor: "orange",
@@ -130,10 +130,10 @@ const Compare = () => {
         label: "Offer 2",
         data: [
           operation2,
-          operation2 / 2,
-          operation2 / 4,
-          operation2 / 5,
-          operation2 / 6,
+          Math.round(operation2 / 2),
+          Math.round(operation2 / 4),
+          Math.round(operation2 / 5),
+          Math.round(operation2 / 6),
         ],
         borderColor: "blue",
         backgroundColor: "blue",
@@ -142,10 +142,10 @@ const Compare = () => {
         label: "Offer 3",
         data: [
           operation3,
-          operation3 / 3,
-          operation3 / 4,
-          operation3 / 6,
-          operation3 / 8,
+          Math.round(operation3 / 3),
+          Math.round(operation3 / 4),
+          Math.round(operation3 / 6),
+          Math.round(operation3 / 8),
         ],
         borderColor: "green",
         backgroundColor: "green",
@@ -158,9 +158,6 @@ const Compare = () => {
       <Line options={optionsDrop} data={dataDecr} width="750" />
       <table className="comparetab">
         <tbody>
-          {
-            //offer.map(a=>(<tr> <th>a.id</th></tr> <tr> <th>a.id</th></tr>))
-          }
           <tr>
             <th>ID</th>
             <th>{offer1.id}</th>
@@ -169,9 +166,9 @@ const Compare = () => {
           </tr>
           <tr>
             <th>Total Annual</th>
-            <th>{offer1.Annual_salary + offer1.Bonus}</th>
-            <th>{offer2.Annual_salary + offer2.Bonus}</th>
-            <th>{offer3.Annual_salary + offer3.Bonus}</th>
+            <th>{parseFloat(offer1.Annual_salary) + parseFloat( offer1.Bonus)}</th>
+            <th>{parseFloat(offer2.Annual_salary) + parseFloat(offer2.Bonus)}</th>
+            <th>{parseFloat(offer3.Annual_salary) + parseFloat(offer3.Bonus)}</th>
           </tr>
           <tr>
             <th>Number Options</th>
@@ -181,9 +178,9 @@ const Compare = () => {
           </tr>
           <tr>
             <th>Cost Exercising</th>
-            <th>{offer1.Number_options * offer1.Strike_price}</th>
-            <th>{offer2.Number_options * offer2.Strike_price}</th>
-            <th>{offer3.Number_options * offer3.Strike_price}</th>
+            <th>{Math.round(offer1.Number_options * offer1.Strike_price)}</th>
+            <th>{Math.round(offer2.Number_options * offer2.Strike_price)}</th>
+            <th>{Math.round(offer3.Number_options * offer3.Strike_price)}</th>
           </tr>
           <tr>
             <th>Value of equity</th>

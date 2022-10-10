@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 const ChangeOffer = () => {
-  const [Salary, setSalary] = useState([]);
-  const [Bonus, setBonus] = useState([]);
+  const [Salary, setSalary] = useState(Number);
+  const [Bonus, setBonus] = useState(Number);
   const [Id, setId] = useState([]);
-  const [StrikePr, setStrikePr] = useState([]);
-  const [nOptions, setnOptions] = useState([]);
-  const [FMV, setFMV] = useState([]);
+  const [StrikePr, setStrikePr] = useState(Number);
+  const [nOptions, setnOptions] = useState(Number);
+  const [FMV, setFMV] = useState(Number);
   const [Match401k, setMatch401k] = useState([]);
   const [OfficeFood, setOfficeFood] = useState([]);
   const [TransportCost, setTransportCost] = useState([]);

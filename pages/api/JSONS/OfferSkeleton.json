@@ -1,7 +1,7 @@
 [{
     "id": 1 ,
-    "Annual_salary": 75000 ,
-    "Bonus": 0 ,
+    "Annual_salary": 75010 ,
+    "Bonus":  40,
     "Total_annual": 0 ,
     "Strike_price": 0.2 ,
     "Number_options": 50000 ,

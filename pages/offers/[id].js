@@ -1,6 +1,5 @@
 import offers from "../api/Objects/Offer";
 import { useState } from "react";
-//Have to read object from the backend(api folder)
 
 export const getStaticPaths = async () => {
   const data = offers;
@@ -17,12 +16,12 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   return {
-    props: {  where: id - 1},
+    props: { where: id - 1 },
   };
 };
 var i = 0;
 
-const Details = ({where}) => {
+const Details = ({ where }) => {
   const [offerso, setOffers] = useState([]);
 
   const FetchApi = async (id) => {
@@ -30,7 +29,6 @@ const Details = ({where}) => {
     const data = await response.json();
     setOffers(data.at(id));
   };
-  
 
   if (i == 0) {
     i = i + 1;
@@ -44,22 +42,22 @@ const Details = ({where}) => {
       <h4>ID: {offerso.id}</h4>
       <h4>Annual Salary: {offerso.Annual_salary}</h4>
       <h4>Bonus: {offerso.Bonus}</h4>
-      <h4>Total Annual: {offerso.Annual_salary + offerso.Bonus}</h4>
+      {}
+      <h4>
+        Total Annual:{" "}
+        {parseFloat(offerso.Annual_salary) + parseFloat(offerso.Bonus)}
+      </h4>
       <h4>Strike Price: {offerso.Strike_price}</h4>
       <h4>Number Options: {offerso.Number_options}</h4>
       <h4>Current FMV: {offerso.Current_FMV_company}</h4>
-      <h4>Cost of exercising: {offerso.Strike_price * offerso.Number_options}</h4>
+      <h4>
+        Cost of exercising:{" "}
+        {parseFloat(offerso.Strike_price) * parseFloat(offerso.Number_options)}
+      </h4>
       <h4>
         Value equity in offer:{" "}
-        {offerso.Number_options * offerso.Current_FMV_company}
-      </h4>
-      <h4>
-        Company Increase x5:{" "}
-        {offerso.Number_options * offerso.Current_FMV_company * 5}
-      </h4>
-      <h4>
-        Company Falls x5:{" "}
-        {(offerso.Number_options * offerso.Current_FMV_company) / 5}
+        {parseFloat(offerso.Number_options) *
+          parseFloat(offerso.Current_FMV_company)}
       </h4>
       <h4>401k matching: {offerso.matching_401k}</h4>
       <h4>Office food: {offerso.Office_food}</h4>
