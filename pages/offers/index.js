@@ -28,7 +28,7 @@ const Offers = () => {
           </Link>
         );
       })}
-      <Link href={"/offers/comparison"}>
+      <Link href={"/offers/Comparison"}>
         <a><h3>Compare</h3></a>
       </Link>
       <Link href={'/offers/CreateOffer'}>

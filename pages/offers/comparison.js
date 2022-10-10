@@ -48,7 +48,7 @@ Chart.register(CategoryScale);
 
 const labels = ["2022", "2024", "2026", "2028", "2030"];
 
-const comparison = ({ offers1, offers2, offers3 }) => {
+const Comparison = ({ offers1, offers2, offers3 }) => {
   const [offers, setOffers] = useState(Offer);
 
   const FetchApi = async () => {
@@ -264,4 +264,4 @@ const comparison = ({ offers1, offers2, offers3 }) => {
   );
 };
 
-export default comparison;
+export default Comparison;
