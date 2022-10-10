@@ -9,16 +9,7 @@ var operation2 = 0;
 var operation3 = 0;
 var i=0;
 
-export const getStaticProps = async () => {
-  const data = Offer;
-  return {
-    props: {
-      offers1: data.at(data.length - data.length),
-      offers2: data.at(data.length - data.length + 1),
-      offers3: data.at(data.length - data.length + 2),
-    },
-  };
-};
+
 export const optionsIncr = {
   responsive: true,
   plugins: {
@@ -48,7 +39,7 @@ Chart.register(CategoryScale);
 
 const labels = ["2022", "2024", "2026", "2028", "2030"];
 
-const Comparison = ({ offers1, offers2, offers3 }) => {
+const Comparison = () => {
   const [offers, setOffers] = useState(Offer);
 
   const FetchApi = async () => {
