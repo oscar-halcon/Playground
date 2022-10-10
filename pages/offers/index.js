@@ -28,11 +28,15 @@ const Offers = () => {
           </Link>
         );
       })}
-      <Link href={"/offers/comparison"}>
-        <a><h3>Compare</h3></a>
+      <Link href={"/offers/Compare"}>
+        <a>
+          <h3>Compare</h3>
+        </a>
       </Link>
-      <Link href={'/offers/CreateOffer'}>
-        <a><h3>Create Offer</h3></a>
+      <Link href={"/offers/ChangeOffer"}>
+        <a>
+          <h3>Change Offer</h3>
+        </a>
       </Link>
     </div>
   );
