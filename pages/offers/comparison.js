@@ -2,18 +2,20 @@ import Offer from "../api/JSONS/OfferSkeleton.json";
 import { Line } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
+import { useState } from "react";
 
 var operation1 = 0;
 var operation2 = 0;
 var operation3 = 0;
+var i=0;
 
 export const getStaticProps = async () => {
   const data = Offer;
   return {
     props: {
-      offer1: data.at(data.length - data.length),
-      offer2: data.at(data.length - data.length + 1),
-      offer3: data.at(data.length - data.length + 2),
+      offers1: data.at(data.length - data.length),
+      offers2: data.at(data.length - data.length + 1),
+      offers3: data.at(data.length - data.length + 2),
     },
   };
 };
@@ -46,7 +48,27 @@ Chart.register(CategoryScale);
 
 const labels = ["2022", "2024", "2026", "2028", "2030"];
 
-const comparison = ({ offer1, offer2, offer3 }) => {
+const comparison = ({ offers1, offers2, offers3 }) => {
+  const [offers, setOffers] = useState(Offer);
+
+  const FetchApi = async () => {
+    const response = await fetch("/api/hello");
+    const data = await response.json();
+    setOffers(data);
+  };
+  
+
+  if (i == 0) {
+    i = i + 1;
+    FetchApi();
+  } else {
+    i = i - 1;
+    //FetchApi();
+  }
+  const offer1=offers.at(0);
+  const offer2=offers.at(1);
+  const offer3=offers.at(2);
+  
   operation1 = offer1.Number_options * offer1.Current_FMV_company;
   operation2 = offer2.Number_options * offer2.Current_FMV_company;
   operation3 = offer3.Number_options * offer3.Current_FMV_company;
