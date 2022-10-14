@@ -202,10 +202,30 @@ const Compare = () => {
   var DecrNum3 = 6;
   var DecrNum4 = 8;
 
-  function M_D(origin, destination) {
-    destination = parseInt(origin);
-  }
-
+  var bestOfeach = Comparative(
+    [
+      offer1.matching_401k,
+      offer1.Health_insurance,
+      offer1.Vacation_days,
+      offer1.Parental_leave,
+      offer1.Training_budget,
+    ],
+    [
+      offer2.matching_401k,
+      offer2.Health_insurance,
+      offer2.Vacation_days,
+      offer2.Parental_leave,
+      offer2.Training_budget,
+    ],
+    [
+      offer3.matching_401k,
+      offer3.Health_insurance,
+      offer3.Vacation_days,
+      offer3.Parental_leave,
+      offer3.Training_budget,
+    ],
+    "BetterExtras"
+  );
   const dataInc = {
     labels,
     datasets: [
@@ -421,30 +441,7 @@ const Compare = () => {
             <th>
               <h4>The Offers with better extras</h4>
             </th>
-            {Comparative(
-              [
-                offer1.matching_401k,
-                offer1.Health_insurance,
-                offer1.Vacation_days,
-                offer1.Parental_leave,
-                offer1.Training_budget,
-              ],
-              [
-                offer2.matching_401k,
-                offer2.Health_insurance,
-                offer2.Vacation_days,
-                offer2.Parental_leave,
-                offer2.Training_budget,
-              ],
-              [
-                offer3.matching_401k,
-                offer3.Health_insurance,
-                offer3.Vacation_days,
-                offer3.Parental_leave,
-                offer3.Training_budget,
-              ],
-              "BetterExtras"
-            ).map((a) => {
+            {bestOfeach.map((a) => {
               return (
                 <tr>
                   <th></th> <th>{a}</th>
