@@ -5,7 +5,7 @@ var i = 0;
 const Offers = () => {
   const [offers, setOffers] = useState([]);
   const FetchApi = async () => {
-    const response = await fetch("/api/hello");
+    const response = await fetch("../api/hello");
     const data = await response.json();
     setOffers(data);
   };

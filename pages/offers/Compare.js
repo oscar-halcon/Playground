@@ -172,7 +172,7 @@ const Compare = () => {
 
   const FetchApi = async () => {
     const response = await fetch(
-      "/Users/Oscar/Documents/Playground/pages/api/hello"
+      "../api/hello"
     );
     const data = await response.json();
     setOffers(data);
@@ -193,14 +193,8 @@ const Compare = () => {
   operation2 = offer2.Number_options * offer2.Current_FMV_company;
   operation3 = offer3.Number_options * offer3.Current_FMV_company;
 
-  var IncrNum1 = 2;
-  var IncrNum2 = 4;
-  var IncrNum3 = 6;
-  var IncrNum4 = 7;
-  var DecrNum1 = 3;
-  var DecrNum2 = 4;
-  var DecrNum3 = 6;
-  var DecrNum4 = 8;
+  var IncrNum1 = [2,4,6,7];
+  var DecrNum1 = [3,4,6,8];
 
   var bestOfeach = Comparative(
     [
@@ -233,10 +227,10 @@ const Compare = () => {
         label: "Offer 1",
         data: [
           operation1,
-          Math.round(operation1 * IncrNum1),
-          Math.round(operation1 * IncrNum2),
-          Math.round(operation1 * IncrNum3),
-          Math.round(operation1 * IncrNum4),
+          Math.round(operation1 * IncrNum1[0]),
+          Math.round(operation1 * IncrNum1[1]),
+          Math.round(operation1 * IncrNum1[2]),
+          Math.round(operation1 * IncrNum1[3]),
         ],
         borderColor: "orange",
         backgroundColor: "orange",
@@ -245,10 +239,10 @@ const Compare = () => {
         label: "Offer 2",
         data: [
           operation2,
-          Math.round(operation2 * IncrNum1),
-          Math.round(operation2 * IncrNum2),
-          Math.round(operation2 * IncrNum3),
-          Math.round(operation2 * IncrNum4),
+          Math.round(operation2 * IncrNum1[0]),
+          Math.round(operation2 * IncrNum1[1]),
+          Math.round(operation2 * IncrNum1[2]),
+          Math.round(operation2 * IncrNum1[3]),
         ],
         borderColor: "blue",
         backgroundColor: "blue",
@@ -257,10 +251,10 @@ const Compare = () => {
         label: "Offer 3",
         data: [
           operation3,
-          Math.round(operation3 * IncrNum1),
-          Math.round(operation3 * IncrNum2),
-          Math.round(operation3 * IncrNum3),
-          Math.round(operation3 * IncrNum4),
+          Math.round(operation3 * IncrNum1[0]),
+          Math.round(operation3 * IncrNum1[1]),
+          Math.round(operation3 * IncrNum1[2]),
+          Math.round(operation3 * IncrNum1[3]),
         ],
         borderColor: "green",
         backgroundColor: "green",
@@ -274,10 +268,10 @@ const Compare = () => {
         label: "Offer 1",
         data: [
           operation1,
-          Math.round(operation1 / DecrNum1),
-          Math.round(operation1 / DecrNum2),
-          Math.round(operation1 / DecrNum3),
-          Math.round(operation1 / DecrNum4),
+          Math.round(operation1 / DecrNum1[0]),
+          Math.round(operation1 / DecrNum1[1]),
+          Math.round(operation1 / DecrNum1[2]),
+          Math.round(operation1 / DecrNum1[3]),
         ],
         borderColor: "orange",
         backgroundColor: "orange",
@@ -286,10 +280,10 @@ const Compare = () => {
         label: "Offer 2",
         data: [
           operation2,
-          Math.round(operation2 / DecrNum1),
-          Math.round(operation2 / DecrNum2),
-          Math.round(operation2 / DecrNum3),
-          Math.round(operation2 / DecrNum4),
+          Math.round(operation2 / DecrNum1[0]),
+          Math.round(operation2 / DecrNum1[1]),
+          Math.round(operation2 / DecrNum1[2]),
+          Math.round(operation2 / DecrNum1[3]),
         ],
         borderColor: "blue",
         backgroundColor: "blue",
@@ -298,10 +292,10 @@ const Compare = () => {
         label: "Offer 3",
         data: [
           operation3,
-          Math.round(operation3 / DecrNum1),
-          Math.round(operation3 / DecrNum2),
-          Math.round(operation3 / DecrNum3),
-          Math.round(operation3 / DecrNum4),
+          Math.round(operation3 / DecrNum1[0]),
+          Math.round(operation3 / DecrNum1[1]),
+          Math.round(operation3 / DecrNum1[2]),
+          Math.round(operation3 / DecrNum1[3]),
         ],
         borderColor: "green",
         backgroundColor: "green",
@@ -367,22 +361,16 @@ const Compare = () => {
             <th>Increase value of the company</th>
           </tr>
           <tr>
-            <th>Increment of company X3</th>
-            <th>{Math.round(operation1 * 3)}</th>
-            <th>{Math.round(operation2 * 3)}</th>
-            <th>{Math.round(operation3 * 3)}</th>
-          </tr>
-          <tr>
             <th>Increment of company X5</th>
             <th>{Math.round(operation1 * 5)}</th>
             <th>{Math.round(operation2 * 5)}</th>
             <th>{Math.round(operation3 * 5)}</th>
           </tr>
           <tr>
-            <th>Increment of company X7</th>
-            <th>{Math.round(operation1 * 7)}</th>
-            <th>{Math.round(operation2 * 7)}</th>
-            <th>{Math.round(operation3 * 7)}</th>
+            <th>Taxes to pay if selling</th>
+            <th>{Math.round(Math.round(operation1 * 5)*0.37)}</th>
+            <th>{Math.round(Math.round(operation2 * 5)*0.37)}</th>
+            <th>{Math.round(Math.round(operation3 * 5)*0.37)}</th>
           </tr>
           <tr>
             <th>Fall of the company</th>
@@ -392,18 +380,6 @@ const Compare = () => {
             <th>{Math.round(operation1 / 5)}</th>
             <th>{Math.round(operation2 / 5)}</th>
             <th>{Math.round(operation3 / 5)}</th>
-          </tr>
-          <tr>
-            <th>Decrement of company X7</th>
-            <th>{Math.round(operation1 / 7)}</th>
-            <th>{Math.round(operation2 / 7)}</th>
-            <th>{Math.round(operation3 / 7)}</th>
-          </tr>
-          <tr>
-            <th>Decrement of company X10</th>
-            <th>{Math.round(operation1 / 10)}</th>
-            <th>{Math.round(operation2 / 10)}</th>
-            <th>{Math.round(operation3 / 10)}</th>
           </tr>
           <tr>
             <th>Extra Benefits</th>
@@ -476,10 +452,7 @@ const Compare = () => {
             </th>
           </tr>
         </tbody>
-      </table>
-      <div>
-        <h3></h3>
-      </div>
+      </table><br/>
     </div>
   );
 };

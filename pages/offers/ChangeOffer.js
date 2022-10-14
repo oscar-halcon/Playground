@@ -22,7 +22,7 @@ const ChangeOffer = () => {
   //Only need 1 answer from backend
 
   const SubmitApi = async () => {
-    const response = await fetch("/api/hello", {
+    const response = await fetch("../api/hello", {
       method: "POST",
       body: JSON.stringify([
         Id,
