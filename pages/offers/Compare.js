@@ -441,13 +441,13 @@ const Compare = () => {
             <th>
               <h4>The Offers with better extras</h4>
             </th>
-            {/*bestOfeach.map((a) => {
+            {bestOfeach.map((a) => {
               return (
-                <tr>
+                <tr key={a}>
                   <th></th> <th>{a}</th>
                 </tr>
               );
-            })*/}
+            })}
           </tr>
           <tr>
             <th>
