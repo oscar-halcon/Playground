@@ -304,19 +304,6 @@ const Compare = () => {
   };
   return (
     <div>
-      {/*
-      <h5>Multiplier chart Increase</h5>
-        <input
-          type="number"
-          onChange={(e) => M_D(e.target.value,IncrNum1)}
-          the taxes for selling stocks is from the diference of 
-          granting to selling
-          and the exercising changes between the now and 1year with cost
-          ex: 5€FMV-0,2€=4,8€ * 50.000=240.000€ as tax
-          in Increment of company: 1.000.000-250.000=750.000 gains
-          and then if long term 1.000.000*20%=200.000€ to pay as tax
-          if short term 1.000.000* 37%=370.000€ to pay as tax
-        />*/}
       <Line options={optionsIncr} data={dataInc} width="750" />
       <Line options={optionsDrop} data={dataDecr} width="750" />
       <table id="comparetab">
