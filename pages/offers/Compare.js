@@ -35,8 +35,10 @@ export const optionsDrop = {
 };
 
 export const Comparative = (a, b, c, query) => {
+  //change a,b and c for an array of inputs data=[[],[],[]]
   var answerExtras = [];
   if (query === "betterPaid") {
+    //insert here foreach
     if (a > b && a > c) {
       return "Offer 1 is the one with better pay";
     } else if (b > a && b > c) {
@@ -53,6 +55,7 @@ export const Comparative = (a, b, c, query) => {
       return "The offers have the same pay";
     }
   } else if (query === "BetterExtras") {
+    //insert here foreach
     if (a[0] === "Yes" && b[0] === "No" && c[0] === "No") {
       answerExtras.push("Offer 1 has better retirement plans");
     } else if (a[0] === "No" && b[0] === "Yes" && c[0] === "No") {
@@ -68,6 +71,7 @@ export const Comparative = (a, b, c, query) => {
     } else {
       answerExtras.push("The offers have the same retirement");
     }
+    //insert here foreach
     if (a[1] === "Yes" && b[1] === "No" && c[1] === "No") {
       answerExtras.push("Offer 1 has better Health insurance");
     } else if (a[1] === "No" && b[1] === "Yes" && c[1] === "No") {
@@ -83,6 +87,7 @@ export const Comparative = (a, b, c, query) => {
     } else {
       answerExtras.push("The offers have the same Health insurance");
     }
+    //insert here foreach
     if (a[2] > b[2] && a[2] > c[2]) {
       answerExtras.push("Offer 1 has more vacation days");
     } else if (b[2] > a[2] && b[2] > c[2]) {
@@ -98,6 +103,7 @@ export const Comparative = (a, b, c, query) => {
     } else {
       answerExtras.push("The offers have the same amount of vacation days");
     }
+    //insert here foreach
     if (a[3] > b[3] && a[3] > c[3]) {
       answerExtras.push("Offer 1 has better Parental leave");
     } else if (b[3] > a[3] && b[3] > c[3]) {
@@ -113,6 +119,7 @@ export const Comparative = (a, b, c, query) => {
     } else {
       answerExtras.push("The offers have the same days of Parental leave");
     }
+    //insert here foreach
     if (a[4] > b[4] && a[4] > c[4]) {
       answerExtras.push("Offer 1 has better training budget");
     } else if (b[4] > a[4] && b[4] > c[4]) {
@@ -130,6 +137,7 @@ export const Comparative = (a, b, c, query) => {
     }
     return answerExtras;
   } else if (query === "BetterProspects") {
+    //insert here foreach
     if (a > b && a > c) {
       return "Offer 1 has better prospects";
     } else if (b > a && b > c) {
@@ -146,6 +154,7 @@ export const Comparative = (a, b, c, query) => {
       return "The offers have the same prospects";
     }
   } else if (query === "LeastLoses") {
+    //insert here foreach
     if (a < b && a < c) {
       return "Offer 1 has the least money loses";
     } else if (b < a && b < c) {
@@ -308,6 +317,8 @@ const Compare = () => {
       <Line options={optionsDrop} data={dataDecr} width="750" />
       <table id="comparetab">
         <tbody>
+          {//insert here foreach with array of offers and i with the lenght of array
+          }
           <tr>
             <th>ID</th>
             <th>{offer1.id}</th>
@@ -355,6 +366,15 @@ const Compare = () => {
           </tr>
           <tr>
             <th>Taxes to pay if selling</th>
+          </tr>
+          <tr>
+            <th>Long term</th>
+            <th>{Math.round(Math.round(operation1 * 5)*0.2)}</th>
+            <th>{Math.round(Math.round(operation2 * 5)*0.2)}</th>
+            <th>{Math.round(Math.round(operation3 * 5)*0.2)}</th>
+          </tr>
+          <tr>
+            <th>Short term</th>
             <th>{Math.round(Math.round(operation1 * 5)*0.37)}</th>
             <th>{Math.round(Math.round(operation2 * 5)*0.37)}</th>
             <th>{Math.round(Math.round(operation3 * 5)*0.37)}</th>

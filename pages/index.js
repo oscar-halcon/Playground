@@ -13,20 +13,16 @@ export default function Home() {
       <div>
         <h1>Homepage</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus animi
-          impedit suscipit architecto, odio inventore nostrum non neque dicta.
-          Quam magni accusantium culpa distinctio tempore iure accusamus,
-          dolorem nobis odit.
+          Welcome to the comparison tool. If you want to know more about how it
+          works you can click{" "}
+          <Link href="/about">
+            <a>here</a>
+          </Link>
+          .{<br/>} And if you want to jump straight to the offers click{" "}
+          <Link href="/offers/">
+            <a>here</a>
+          </Link>
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus animi
-          impedit suscipit architecto, odio inventore nostrum non neque dicta.
-          Quam magni accusantium culpa distinctio tempore iure accusamus,
-          dolorem nobis odit.
-        </p>
-        <Link href="/offers/">
-          <a>See Offer Listing</a>
-        </Link>
       </div>
     </>
   );
