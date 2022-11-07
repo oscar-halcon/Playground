@@ -34,142 +34,218 @@ export const optionsDrop = {
   },
 };
 
-export const Comparative = (a, b, c, query) => {
-  //change a,b and c for an array of inputs data=[[],[],[]]
+export const Comparative = (r, query) => {
+  var i = 0;
+  var q = i + 1;
+  var fullAnswers = [];
   var answerExtras = [];
   if (query === "betterPaid") {
-    //insert here foreach
-    if (a > b && a > c) {
-      return "Offer 1 is the one with better pay";
-    } else if (b > a && b > c) {
-      return "Offer 2 is the one with better pay";
-    } else if (c > a && c > b) {
-      return "Offer 3 is the one with better pay";
-    } else if (a == b && a > c) {
-      return "Offers 1&2 are the ones with better pay";
-    } else if (a == c && a > b) {
-      return "Offers 1&3 are the ones with better pay";
-    } else if (b == c && b > a) {
-      return "Offers 2&3 are the ones with better pay";
-    } else {
-      return "The offers have the same pay";
+    //insert here foreach r.forEach(q=>{})
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " is better paid than Offer" + (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has same pay as Offer" + (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " is worse paid than Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
-  } else if (query === "BetterExtras") {
-    //insert here foreach
-    if (a[0] === "Yes" && b[0] === "No" && c[0] === "No") {
-      answerExtras.push("Offer 1 has better retirement plans");
-    } else if (a[0] === "No" && b[0] === "Yes" && c[0] === "No") {
-      answerExtras.push("Offer 2 has better retirement plans");
-    } else if (a[0] === "No" && b[0] === "No" && c[0] === "Yes") {
-      answerExtras.push("Offer 3 has better retirement plans");
-    } else if (a[0] === "Yes" && b[0] === "Yes" && c[0] === "No") {
-      answerExtras.push("Offer 1&2 have better retirement");
-    } else if (a[0] === "Yes" && b[0] === "No" && c[0] === "Yes") {
-      answerExtras.push("Offer 1&3 have better retirement");
-    } else if (a[0] === "No" && b[0] === "Yes" && c[0] === "Yes") {
-      answerExtras.push("Offer 2&3 have better retirement");
-    } else {
-      answerExtras.push("The offers have the same retirement");
+    return fullAnswers;
+  } else if (query === "BetterRetirement") {
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] === "Yes" && r[q] === "No") {
+          answerExtras.push(
+            "Offer" +
+              (i + 1) +
+              " has better retirement plan than Offer" +
+              (q + 1)
+          );
+        } else if (r[i] === "No" && r[q] === "Yes") {
+          answerExtras.push(
+            "Offer" +
+              (i + 1) +
+              " has worse retirement plan than Offer" +
+              (q + 1)
+          );
+        } else {
+          answerExtras.push(
+            "Offer" + (i + 1) + " has same retirement plan as Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
-    //insert here foreach
-    if (a[1] === "Yes" && b[1] === "No" && c[1] === "No") {
-      answerExtras.push("Offer 1 has better Health insurance");
-    } else if (a[1] === "No" && b[1] === "Yes" && c[1] === "No") {
-      answerExtras.push("Offer 2 has better Health insurance");
-    } else if (a[1] === "No" && b[1] === "No" && c[1] === "Yes") {
-      answerExtras.push("Offer 3 has better Health insurance");
-    } else if (a[1] === "Yes" && b[1] === "Yes" && c[1] === "No") {
-      answerExtras.push("Offer 1&2 has better Health insurance");
-    } else if (a[1] === "Yes" && b[1] === "No" && c[1] === "Yes") {
-      answerExtras.push("Offer 1&3 has better Health insurance");
-    } else if (a[1] === "No" && b[1] === "Yes" && c[1] === "Yes") {
-      answerExtras.push("Offer 2&3 has better Health insurance");
-    } else {
-      answerExtras.push("The offers have the same Health insurance");
+    return answerExtras;
+  } else if (query === "BetterHealth") {
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] === "Yes" && r[q] === "No") {
+          answerExtras.push(
+            "Offer" +
+              (i + 1) +
+              " has better Health insurance than Offer" +
+              (q + 1)
+          );
+        } else if (r[i] === "No" && r[q] === "Yes") {
+          answerExtras.push(
+            "Offer" +
+              (i + 1) +
+              " has worse Health insurance  than Offer" +
+              (q + 1)
+          );
+        } else {
+          answerExtras.push(
+            "Offer" + (i + 1) + " has same Health insurance as Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
-    //insert here foreach
-    if (a[2] > b[2] && a[2] > c[2]) {
-      answerExtras.push("Offer 1 has more vacation days");
-    } else if (b[2] > a[2] && b[2] > c[2]) {
-      answerExtras.push("Offer 2 has more vacation days");
-    } else if (c[2] > b[2] && c[2] > a[2]) {
-      answerExtras.push("Offer 3 has more vacation days");
-    } else if (a[2] == b[2] && a[2] > c[2]) {
-      answerExtras.push("Offer 1&2 have more vacation days");
-    } else if (a[2] > b[2] && a[2] == c[2]) {
-      answerExtras.push("Offer 1&3 have more vacation days");
-    } else if (c[2] == b[2] && c[2] > a[2]) {
-      answerExtras.push("Offer 2&3 have more vacation days");
-    } else {
-      answerExtras.push("The offers have the same amount of vacation days");
+    return answerExtras;
+  } else if (query === "BetterVacation") {
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has more vacation days than Offer" + (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" +
+              (i + 1) +
+              " has the same amount of vacation days as Offer" +
+              (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has less vacation days than Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
-    //insert here foreach
-    if (a[3] > b[3] && a[3] > c[3]) {
-      answerExtras.push("Offer 1 has better Parental leave");
-    } else if (b[3] > a[3] && b[3] > c[3]) {
-      answerExtras.push("Offer 2 has better Parental leave");
-    } else if (c[3] > b[3] && c[3] > a[3]) {
-      answerExtras.push("Offer 3 has better Parental leave");
-    } else if (a[3] == b[3] && a[3] > c[3]) {
-      answerExtras.push("Offer 1&2 have better Parental leave");
-    } else if (a[3] == c[3] && a[3] > b[3]) {
-      answerExtras.push("Offer 1&3 have better Parental leave");
-    } else if (c[3] == b[3] && b[3] > a[3]) {
-      answerExtras.push("Offer 2&3 have better Parental leave");
-    } else {
-      answerExtras.push("The offers have the same days of Parental leave");
+    return answerExtras;
+  } else if (query === "BetterParental") {
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has more parental leave than Offer" + (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" +
+              (i + 1) +
+              " has the same amount of parental leave as Offer" +
+              (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has less parental leave than Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
-    //insert here foreach
-    if (a[4] > b[4] && a[4] > c[4]) {
-      answerExtras.push("Offer 1 has better training budget");
-    } else if (b[4] > a[4] && b[4] > c[4]) {
-      answerExtras.push("Offer 2 has better training budget");
-    } else if (c[4] > b[4] && c[4] > a[4]) {
-      answerExtras.push("Offer 3 has better training budget");
-    } else if (a[4] == b[4] && a[4] > c[4]) {
-      answerExtras.push("Offer 1&2 have better training budget");
-    } else if (a[4] == c[4] && a[4] > b[4]) {
-      answerExtras.push("Offer 1&3 have better training budget");
-    } else if (c[4] == b[4] && b[4] > a[4]) {
-      answerExtras.push("Offer 2&3 have better training budget");
-    } else {
-      answerExtras.push("The offers have the same training budget");
+    return answerExtras;
+  } else if (query === "BetterTraining") {
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has more training budget than Offer" + (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" +
+              (i + 1) +
+              " has the same amount of training budget as Offer" +
+              (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has less training budget than Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
     return answerExtras;
   } else if (query === "BetterProspects") {
-    //insert here foreach
-    if (a > b && a > c) {
-      return "Offer 1 has better prospects";
-    } else if (b > a && b > c) {
-      return "Offer 2 has better prospects";
-    } else if (c > a && c > b) {
-      return "Offer 3 has better prospects";
-    } else if (a == b && a > c) {
-      return "Offer 1&2 have better prospects";
-    } else if (a == c && a > b) {
-      return "Offer 1&3 have better prospects";
-    } else if (b == c && b > a) {
-      return "Offer 2&3 have better prospects";
-    } else {
-      return "The offers have the same prospects";
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has better prospects than Offer" + (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has same prospects as Offer" + (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has worse prospects than Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
+    return fullAnswers;
   } else if (query === "LeastLoses") {
-    //insert here foreach
-    if (a < b && a < c) {
-      return "Offer 1 has the least money loses";
-    } else if (b < a && b < c) {
-      return "Offer 2 has the least money loses";
-    } else if (c < a && c < b) {
-      return "Offer 3 has the least money loses";
-    } else if (a == b && a < c) {
-      return "Offer 1&2 have the least money loses";
-    } else if (a == c && a < b) {
-      return "Offer 1&3 have the least money loses";
-    } else if (b == c && b < a) {
-      return "Offer 2&3 have the least money loses";
-    } else {
-      return "The offers have the same amount of money loses";
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" +
+              (i + 1) +
+              " has more money lost in case of failure than Offer" +
+              (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" +
+              (i + 1) +
+              " has same money lost in case of failure as Offer" +
+              (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" +
+              (i + 1) +
+              " has less money lost in case of failure than Offer" +
+              (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
     }
+    return fullAnswers;
   }
 };
 Chart.register(CategoryScale);
@@ -180,9 +256,7 @@ const Compare = () => {
   const [offers, setOffers] = useState(Offer);
 
   const FetchApi = async () => {
-    const response = await fetch(
-      "../api/hello"
-    );
+    const response = await fetch("../api/hello");
     const data = await response.json();
     setOffers(data);
   };
@@ -202,33 +276,51 @@ const Compare = () => {
   operation2 = offer2.Number_options * offer2.Current_FMV_company;
   operation3 = offer3.Number_options * offer3.Current_FMV_company;
 
-  var IncrNum1 = [2,4,6,7];
-  var DecrNum1 = [3,4,6,8];
+  var IncrNum1 = [2, 4, 6, 7];
+  var DecrNum1 = [3, 4, 6, 8];
 
-  var bestOfeach = Comparative(
+  var betterPaid = Comparative(
     [
-      offer1.matching_401k,
-      offer1.Health_insurance,
-      offer1.Vacation_days,
-      offer1.Parental_leave,
-      offer1.Training_budget,
+      offer1.Annual_salary + offer1.Bonus,
+      offer2.Annual_salary + offer2.Bonus,
+      offer3.Annual_salary + offer3.Bonus,
     ],
-    [
-      offer2.matching_401k,
-      offer2.Health_insurance,
-      offer2.Vacation_days,
-      offer2.Parental_leave,
-      offer2.Training_budget,
-    ],
-    [
-      offer3.matching_401k,
-      offer3.Health_insurance,
-      offer3.Vacation_days,
-      offer3.Parental_leave,
-      offer3.Training_budget,
-    ],
-    "BetterExtras"
+    "betterPaid"
   );
+
+  var betterRetirement = Comparative(
+    [offer1.matching_401k, offer2.matching_401k, offer3.matching_401k],
+    "BetterRetirement"
+  );
+  var betterHealth = Comparative(
+    [offer1.Health_insurance, offer2.Health_insurance, offer3.Health_insurance],
+    "BetterHealth"
+  );
+  var betterVacation = Comparative(
+    [offer1.Vacation_days, offer2.Vacation_days, offer3.Vacation_days],
+    "BetterVacation"
+  );
+  var betterParental = Comparative(
+    [offer1.Parental_leave, offer2.Parental_leave, offer3.Parental_leave],
+    "BetterParental"
+  );
+  var betterTraining = Comparative(
+    [offer1.Training_budget, offer2.Training_budget, offer3.Training_budget],
+    "BetterTraining"
+  );
+  var betterProspects = Comparative(
+    [operation1 * 5, operation2 * 5, operation3 * 5],
+    "BetterProspects"
+  );
+  var leastLoses = Comparative(
+    [
+      operation1 - operation1 / 5,
+      operation2 - operation2 / 5,
+      operation3 - operation3 / 5,
+    ],
+    "LeastLoses"
+  );
+
   const dataInc = {
     labels,
     datasets: [
@@ -317,7 +409,8 @@ const Compare = () => {
       <Line options={optionsDrop} data={dataDecr} width="750" />
       <table id="comparetab">
         <tbody>
-          {//insert here foreach with array of offers and i with the lenght of array
+          {
+            //insert here foreach with array of offers and i with the lenght of array
           }
           <tr>
             <th>ID</th>
@@ -369,15 +462,15 @@ const Compare = () => {
           </tr>
           <tr>
             <th>Long term</th>
-            <th>{Math.round(Math.round(operation1 * 5)*0.2)}</th>
-            <th>{Math.round(Math.round(operation2 * 5)*0.2)}</th>
-            <th>{Math.round(Math.round(operation3 * 5)*0.2)}</th>
+            <th>{Math.round(Math.round(operation1 * 5) * 0.2)}</th>
+            <th>{Math.round(Math.round(operation2 * 5) * 0.2)}</th>
+            <th>{Math.round(Math.round(operation3 * 5) * 0.2)}</th>
           </tr>
           <tr>
             <th>Short term</th>
-            <th>{Math.round(Math.round(operation1 * 5)*0.37)}</th>
-            <th>{Math.round(Math.round(operation2 * 5)*0.37)}</th>
-            <th>{Math.round(Math.round(operation3 * 5)*0.37)}</th>
+            <th>{Math.round(Math.round(operation1 * 5) * 0.37)}</th>
+            <th>{Math.round(Math.round(operation2 * 5) * 0.37)}</th>
+            <th>{Math.round(Math.round(operation3 * 5) * 0.37)}</th>
           </tr>
           <tr>
             <th>Fall of the company</th>
@@ -411,55 +504,71 @@ const Compare = () => {
             <th>
               <h4>The Offer with more pay</h4>
             </th>
-            <th>
-              {Comparative(
-                offer1.Annual_salary + offer1.Bonus,
-                offer2.Annual_salary + offer2.Bonus,
-                offer3.Annual_salary + offer3.Bonus,
-                "betterPaid"
-              )}
-            </th>
+            {betterPaid.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
           </tr>
           <tr>
             <th>
-              <h4>The Offers with better extras</h4>
+              <h4>The Offers with better retirement plan</h4>
             </th>
-            {bestOfeach.map((a) => {
-              return (
-                <tr key={a}>
-                  <th></th> <th>{a}</th>
-                </tr>
-              );
+            {betterRetirement.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better health insurance</h4>
+            </th>
+            {betterHealth.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with more vacation days</h4>
+            </th>
+            {betterVacation.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better parental leave</h4>
+            </th>
+            {betterParental.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better training budget</h4>
+            </th>
+            {betterTraining.map((a) => {
+              return <th key={a}>{a}</th>;
             })}
           </tr>
           <tr>
             <th>
               <h4>The offer with higher increment</h4>
             </th>
-            <th>
-              {Comparative(
-                operation1 * 5,
-                operation2 * 5,
-                operation3 * 5,
-                "BetterProspects"
-              )}
-            </th>
+            {betterProspects.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
           </tr>
           <tr>
             <th>
               <h4>The offer with the least loses</h4>
             </th>
             <th>
-              {Comparative(
-                operation1 - operation1 / 5,
-                operation2 - operation2 / 5,
-                operation3 - operation3 / 5,
-                "LeastLoses"
-              )}
+              {leastLoses.map((a) => {
+                return <th key={a}>{a}</th>;
+              })}
             </th>
           </tr>
         </tbody>
-      </table><br/>
+      </table>
+      <br />
     </div>
   );
 };
