@@ -2,7 +2,7 @@ import Offer from "../api/Objects/Offer";
 import { Line } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 var operation1 = 0;
 var operation2 = 0;
@@ -36,9 +36,8 @@ export const optionsDrop = {
 
 export const Comparative = (r, query) => {
   var i = 0;
-  var q = i + 1;
+  var q = 1;
   var fullAnswers = [];
-  var answerExtras = [];
   if (query === "betterPaid") {
     //insert here foreach r.forEach(q=>{})
     while (i < r.length) {
@@ -63,24 +62,25 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "BetterRetirement") {
+    i = 0;
     while (i < r.length) {
-      while (q <= r.length) {
+      while (q < r.length) {
         if (r[i] === "Yes" && r[q] === "No") {
-          answerExtras.push(
+          fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has better retirement plan than Offer" +
               (q + 1)
           );
         } else if (r[i] === "No" && r[q] === "Yes") {
-          answerExtras.push(
+          fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has worse retirement plan than Offer" +
               (q + 1)
           );
         } else {
-          answerExtras.push(
+          fullAnswers.push(
             "Offer" + (i + 1) + " has same retirement plan as Offer" + (q + 1)
           );
         }
@@ -89,26 +89,27 @@ export const Comparative = (r, query) => {
       i++;
       q = i + 1;
     }
-    return answerExtras;
+    return fullAnswers;
   } else if (query === "BetterHealth") {
+    i = 0;
     while (i < r.length) {
-      while (q <= r.length) {
+      while (q < r.length) {
         if (r[i] === "Yes" && r[q] === "No") {
-          answerExtras.push(
+          fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has better Health insurance than Offer" +
               (q + 1)
           );
         } else if (r[i] === "No" && r[q] === "Yes") {
-          answerExtras.push(
+          fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has worse Health insurance  than Offer" +
               (q + 1)
           );
         } else {
-          answerExtras.push(
+          fullAnswers.push(
             "Offer" + (i + 1) + " has same Health insurance as Offer" + (q + 1)
           );
         }
@@ -117,7 +118,7 @@ export const Comparative = (r, query) => {
       i++;
       q = i + 1;
     }
-    return answerExtras;
+    return fullAnswers;
   } else if (query === "BetterVacation") {
     while (i < r.length) {
       while (q <= r.length) {
@@ -142,7 +143,7 @@ export const Comparative = (r, query) => {
       i++;
       q = i + 1;
     }
-    return answerExtras;
+    return fullAnswers;
   } else if (query === "BetterParental") {
     while (i < r.length) {
       while (q <= r.length) {
@@ -167,7 +168,7 @@ export const Comparative = (r, query) => {
       i++;
       q = i + 1;
     }
-    return answerExtras;
+    return fullAnswers;
   } else if (query === "BetterTraining") {
     while (i < r.length) {
       while (q <= r.length) {
@@ -192,7 +193,7 @@ export const Comparative = (r, query) => {
       i++;
       q = i + 1;
     }
-    return answerExtras;
+    return fullAnswers;
   } else if (query === "BetterProspects") {
     while (i < r.length) {
       while (q <= r.length) {
@@ -288,24 +289,40 @@ const Compare = () => {
     "betterPaid"
   );
 
-  var betterRetirement = Comparative(
-    [offer1.matching_401k, offer2.matching_401k, offer3.matching_401k],
-    "BetterRetirement"
-  );
-  var betterHealth = Comparative(
-    [offer1.Health_insurance, offer2.Health_insurance, offer3.Health_insurance],
-    "BetterHealth"
-  );
+  var entrada1 = [
+    offer1.matching_401k,
+    offer2.matching_401k,
+    offer3.matching_401k,
+  ];
+  var entrada2 = [
+    offer1.Health_insurance,
+    offer2.Health_insurance,
+    offer3.Health_insurance,
+  ];
+  var betterRetirement = Comparative(entrada1, "BetterRetirement");
+  var betterHealth = Comparative(entrada2, "BetterHealth");
   var betterVacation = Comparative(
-    [offer1.Vacation_days, offer2.Vacation_days, offer3.Vacation_days],
+    [
+      parseFloat(offer1.Vacation_days),
+      parseFloat(offer2.Vacation_days),
+      parseFloat(offer3.Vacation_days),
+    ],
     "BetterVacation"
   );
   var betterParental = Comparative(
-    [offer1.Parental_leave, offer2.Parental_leave, offer3.Parental_leave],
+    [
+      parseFloat(offer1.Parental_leave),
+      parseFloat(offer2.Parental_leave),
+      parseFloat(offer3.Parental_leave),
+    ],
     "BetterParental"
   );
   var betterTraining = Comparative(
-    [offer1.Training_budget, offer2.Training_budget, offer3.Training_budget],
+    [
+      parseFloat(offer1.Training_budget),
+      parseFloat(offer2.Training_budget),
+      parseFloat(offer3.Training_budget),
+    ],
     "BetterTraining"
   );
   var betterProspects = Comparative(
@@ -320,6 +337,9 @@ const Compare = () => {
     ],
     "LeastLoses"
   );
+  //useEffect(() => {
+  //Runs only on the first render
+  //}, []);
 
   const dataInc = {
     labels,
@@ -560,11 +580,9 @@ const Compare = () => {
             <th>
               <h4>The offer with the least loses</h4>
             </th>
-            <th>
-              {leastLoses.map((a) => {
-                return <th key={a}>{a}</th>;
-              })}
-            </th>
+            {leastLoses.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
           </tr>
         </tbody>
       </table>
