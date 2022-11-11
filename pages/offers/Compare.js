@@ -254,8 +254,9 @@ const labels = ["2022", "2024", "2026", "2028", "2030"];
 const Compare = () => {
   const [offers, setOffers] = useState(Offer);
 
+  var REACT_APP_VERCEL_URL="localhost:3000"
   const FetchApi = async () => {
-    const response = await fetch("../api/hello");
+    const response = await fetch(".."+"/api/offersAPI");
     const data = await response.json();
     setOffers(data);
   };
