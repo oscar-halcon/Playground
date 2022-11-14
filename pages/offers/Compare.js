@@ -245,6 +245,28 @@ export const Comparative = (r, query) => {
       q = i + 1;
     }
     return fullAnswers;
+  } else if (query === "Risk") {
+    while (i < r.length) {
+      while (q <= r.length) {
+        if (r[i] > r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has more risk of failure than Offer" + (q + 1)
+          );
+        } else if (r[i] == r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has same risk of failure as Offer" + (q + 1)
+          );
+        } else if (r[i] < r[q]) {
+          fullAnswers.push(
+            "Offer" + (i + 1) + " has less risk of failure than Offer" + (q + 1)
+          );
+        }
+        q++;
+      }
+      i++;
+      q = i + 1;
+    }
+    return fullAnswers;
   }
 };
 Chart.register(CategoryScale);
@@ -254,9 +276,9 @@ const labels = ["2022", "2024", "2026", "2028", "2030"];
 const Compare = () => {
   const [offers, setOffers] = useState(Offer);
 
-  var REACT_APP_VERCEL_URL="localhost:3000"
+  var REACT_APP_VERCEL_URL = "localhost:3000";
   const FetchApi = async () => {
-    const response = await fetch(".."+"/api/offersAPI");
+    const response = await fetch(".." + "/api/offersAPI");
     const data = await response.json();
     setOffers(data);
   };
@@ -579,6 +601,22 @@ const Compare = () => {
               return <th key={a}>{a}</th>;
             })}
           </tr>
+          {/*
+          <tr>
+            <th>
+              <h4>The offer with the least loses</h4>
+            </th>
+            {Comparative(
+    [
+      risk1,
+      ris2,
+      risk3,
+    ],
+    "Risk").map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          */}
         </tbody>
       </table>
       <br />
