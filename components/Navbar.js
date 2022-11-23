@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-end items-end m-10 p-1 border-b-100 border-solid border-indigo-500 border-black">
+    <nav className="flex justify-end items-end m-10 p-1 border-b-2 border-solid border-black">
       <div className="logo">
         <h1>Secfi List</h1>
       </div>

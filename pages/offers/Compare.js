@@ -31,7 +31,10 @@ export const optionsDrop = {
     },
   },
 };
+/*This function can only compare betterPaid,betterRetirment,betterHealth,betterVacation
+,betterParental,betterTraining,betterProspects,Leastloses and Risk(Risk needing some tweeks)
 
+*/
 export const Comparative = (r, query) => {
   var i = 0;
   var q = 1;
@@ -447,6 +450,91 @@ const Compare = () => {
     <div>
       <Line options={optionsIncr} data={dataInc} width="750" />
       <Line options={optionsDrop} data={dataDecr} width="750" />
+      <table id="tBestParts">
+        <tbody>
+          <tr>
+            <th>
+              <h4>The Offer with more pay</h4>
+            </th>
+            {betterPaid.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better retirement plan</h4>
+            </th>
+            {betterRetirement.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better health insurance</h4>
+            </th>
+            {betterHealth.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with more vacation days</h4>
+            </th>
+            {betterVacation.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better parental leave</h4>
+            </th>
+            {betterParental.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The Offers with better training budget</h4>
+            </th>
+            {betterTraining.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The offer with higher increment</h4>
+            </th>
+            {betterProspects.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          <tr>
+            <th>
+              <h4>The offer with the least loses</h4>
+            </th>
+            {leastLoses.map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          {/*
+          <tr>
+            <th>
+              <h4>The offer with the least loses</h4>
+            </th>
+            {Comparative(
+    [
+      risk1,
+      ris2,
+      risk3,
+    ],
+    "Risk").map((a) => {
+              return <th key={a}>{a}</th>;
+            })}
+          </tr>
+          */}
+        </tbody>
+      </table>
+      <details  className="open:font-bold selection:bg-white">
       <table id="comparetab">
         <tbody>
           <tr>
@@ -535,90 +623,7 @@ const Compare = () => {
           </tr>
         </tbody>
       </table>
-      <table id="tBestParts">
-        <tbody>
-          <tr>
-            <th>
-              <h4>The Offer with more pay</h4>
-            </th>
-            {betterPaid.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The Offers with better retirement plan</h4>
-            </th>
-            {betterRetirement.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The Offers with better health insurance</h4>
-            </th>
-            {betterHealth.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The Offers with more vacation days</h4>
-            </th>
-            {betterVacation.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The Offers with better parental leave</h4>
-            </th>
-            {betterParental.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The Offers with better training budget</h4>
-            </th>
-            {betterTraining.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The offer with higher increment</h4>
-            </th>
-            {betterProspects.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          <tr>
-            <th>
-              <h4>The offer with the least loses</h4>
-            </th>
-            {leastLoses.map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          {/*
-          <tr>
-            <th>
-              <h4>The offer with the least loses</h4>
-            </th>
-            {Comparative(
-    [
-      risk1,
-      ris2,
-      risk3,
-    ],
-    "Risk").map((a) => {
-              return <th key={a}>{a}</th>;
-            })}
-          </tr>
-          */}
-        </tbody>
-      </table>
+      </details>
       <br />
     </div>
   );
