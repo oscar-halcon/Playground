@@ -31,11 +31,17 @@ export const optionsDrop = {
     },
   },
 };
-/*This function can only compare betterPaid,betterRetirment,betterHealth,betterVacation
-,betterParental,betterTraining,betterProspects,Leastloses and Risk(Risk needing some tweeks)
 
+export const Comparative = (data, query) => {
+  /*This function can compare various things about offers for example betterPaid,betterRetirment,betterHealth,betterVacation
+,betterParental,betterTraining,betterProspects,Leastloses and Risk(Risk needing some tweeks)
+ Of course there can be added more types of queries in needing to compare other things
 */
-export const Comparative = (r, query) => {
+/* The data is the ones you want to compare and the query is the type o0f comparison that
+you want to make. Data has to be at least an array with more than one entry so that there
+can be a comparison and query has to be a string with the type of comparison that wants
+to be made
+*/
   var i = 0;
   var q = 1;
   var fullAnswers = [];
@@ -44,9 +50,8 @@ export const Comparative = (r, query) => {
   }
 
   if (query === "betterPaid") {
-    //insert here foreach r.forEach(q=>{})
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " is better paid than Offer" + (q + 1)
@@ -68,8 +73,8 @@ export const Comparative = (r, query) => {
     return fullAnswers;
   } else if (query === "BetterRetirement") {
     i = 0;
-    while (i < r.length) {
-      while (q < r.length) {
+    while (i < data.length) {
+      while (q < data.length) {
         if (r[i] === "Yes" && r[q] === "No") {
           fullAnswers.push(
             "Offer" +
@@ -97,8 +102,8 @@ export const Comparative = (r, query) => {
     return fullAnswers;
   } else if (query === "BetterHealth") {
     i = 0;
-    while (i < r.length) {
-      while (q < r.length) {
+    while (i < data.length) {
+      while (q < data.length) {
         if (r[i] === "Yes" && r[q] === "No") {
           fullAnswers.push(
             "Offer" +
@@ -125,8 +130,8 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "BetterVacation") {
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more vacation days than Offer" + (q + 1)
@@ -150,8 +155,8 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "BetterParental") {
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more parental leave than Offer" + (q + 1)
@@ -175,8 +180,8 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "BetterTraining") {
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more training budget than Offer" + (q + 1)
@@ -200,8 +205,8 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "BetterProspects") {
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has better prospects than Offer" + (q + 1)
@@ -222,8 +227,8 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "LeastLoses") {
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" +
@@ -253,8 +258,8 @@ export const Comparative = (r, query) => {
     }
     return fullAnswers;
   } else if (query === "Risk") {
-    while (i < r.length) {
-      while (q <= r.length) {
+    while (i < data.length) {
+      while (q <= data.length) {
         if (r[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more risk of failure than Offer" + (q + 1)
