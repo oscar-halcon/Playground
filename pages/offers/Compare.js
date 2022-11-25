@@ -39,6 +39,10 @@ export const Comparative = (r, query) => {
   var i = 0;
   var q = 1;
   var fullAnswers = [];
+  if(query==="LeastRisk"){
+    return ""
+  }
+
   if (query === "betterPaid") {
     //insert here foreach r.forEach(q=>{})
     while (i < r.length) {
