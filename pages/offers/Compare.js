@@ -52,15 +52,15 @@ to be made
   if (query === "betterPaid") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " is better paid than Offer" + (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has same pay as Offer" + (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " is worse paid than Offer" + (q + 1)
           );
@@ -75,14 +75,14 @@ to be made
     i = 0;
     while (i < data.length) {
       while (q < data.length) {
-        if (r[i] === "Yes" && r[q] === "No") {
+        if (data[i] === "Yes" && r[q] === "No") {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has better retirement plan than Offer" +
               (q + 1)
           );
-        } else if (r[i] === "No" && r[q] === "Yes") {
+        } else if (data[i] === "No" && r[q] === "Yes") {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
@@ -104,14 +104,14 @@ to be made
     i = 0;
     while (i < data.length) {
       while (q < data.length) {
-        if (r[i] === "Yes" && r[q] === "No") {
+        if (data[i] === "Yes" && r[q] === "No") {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has better Health insurance than Offer" +
               (q + 1)
           );
-        } else if (r[i] === "No" && r[q] === "Yes") {
+        } else if (data[i] === "No" && r[q] === "Yes") {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
@@ -132,18 +132,18 @@ to be made
   } else if (query === "BetterVacation") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more vacation days than Offer" + (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has the same amount of vacation days as Offer" +
               (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has less vacation days than Offer" + (q + 1)
           );
@@ -157,18 +157,18 @@ to be made
   } else if (query === "BetterParental") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more parental leave than Offer" + (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has the same amount of parental leave as Offer" +
               (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has less parental leave than Offer" + (q + 1)
           );
@@ -182,18 +182,18 @@ to be made
   } else if (query === "BetterTraining") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more training budget than Offer" + (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has the same amount of training budget as Offer" +
               (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has less training budget than Offer" + (q + 1)
           );
@@ -207,15 +207,15 @@ to be made
   } else if (query === "BetterProspects") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has better prospects than Offer" + (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has same prospects as Offer" + (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has worse prospects than Offer" + (q + 1)
           );
@@ -229,21 +229,21 @@ to be made
   } else if (query === "LeastLoses") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has more money lost in case of failure than Offer" +
               (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
               " has same money lost in case of failure as Offer" +
               (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" +
               (i + 1) +
@@ -260,15 +260,15 @@ to be made
   } else if (query === "Risk") {
     while (i < data.length) {
       while (q <= data.length) {
-        if (r[i] > r[q]) {
+        if (data[i] > r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has more risk of failure than Offer" + (q + 1)
           );
-        } else if (r[i] == r[q]) {
+        } else if (data[i] == r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has same risk of failure as Offer" + (q + 1)
           );
-        } else if (r[i] < r[q]) {
+        } else if (data[i] < r[q]) {
           fullAnswers.push(
             "Offer" + (i + 1) + " has less risk of failure than Offer" + (q + 1)
           );
