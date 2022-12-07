@@ -25,7 +25,7 @@ const Details = ({ where }) => {
   const [offerso, setOffers] = useState([]);
 
   const FetchApi = async (id) => {
-    const response = await fetch("../api/hello");
+    const response = await fetch("../api/offersAPI");
     const data = await response.json();
     setOffers(data.at(id));
   };
