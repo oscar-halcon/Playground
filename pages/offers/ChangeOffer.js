@@ -161,7 +161,8 @@ const ChangeOffer = () => {
           value={GrowthPlan}
           onChange={(e) => setGrowthPlan(e.target.value)}
         />
-        <button onClick={SubmitApi}>Change Offer</button>
+        <br/>
+        <button onClick={SubmitApi}><b>Change Offer</b></button>
         <h5>{answer2}</h5>
       </div>
     </div>

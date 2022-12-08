@@ -18,7 +18,7 @@ const Offers = () => {
   }
   return (
     <div>
-      <h1>All Offers</h1>
+      <h1 className="flex mt-10">All Offers</h1>
       {offers.map((a) => {
         return (
           <Link href={"/offers/" + a.id} key={a.id}>
